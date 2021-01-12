@@ -2,7 +2,8 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "Utility for comparing two configuration files and showing a difference.",
-  "main": "index.js",
+  "main": "bin/gendiff.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,7 +18,8 @@
   },
   "homepage": "https://github.com/Ivankalachikov/frontend-project-lvl2#readme",
   "dependencies": {
-    "commander": "^6.2.1"
+    "commander": "^6.2.1",
+    "lodash": "^4.17.20"
   },
   "devDependencies": {
     "@jest/globals": "^26.6.2",
