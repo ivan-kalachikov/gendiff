@@ -22,10 +22,6 @@ const formatToStylish = (diffs) => {
   return result;
 };
 
-const formatOutput = (diffs, format) => {
-  if (format === 'stylish') {
-    return formatToStylish(diffs);
-  }
-};
+const formatOutput = (diffs, format) => format === 'stylish' && formatToStylish(diffs);
 
 export default formatOutput;

@@ -3,7 +3,7 @@ import _ from 'lodash';
 const compare = (obj1, obj2) => {
   const keys1 = Object.keys(obj1);
   const keys2 = Object.keys(obj2);
-  const unionKeys = _.uniq([...keys1, ...keys2]).sort();
+  const unionKeys = _.union(keys1, keys2).sort();
 
   const result = unionKeys.reduce((acc, key) => {
     const isRemoved = key in obj1 && !(key in obj2);
