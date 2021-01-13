@@ -6,3 +6,6 @@ test:
 
 test-watch:
 	NODE_OPTIONS=--experimental-vm-modules npx jest --watch
+
+install:
+	npm ci
