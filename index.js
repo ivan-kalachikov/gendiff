@@ -3,12 +3,9 @@ import path from 'path';
 import compare from './src/compare.js';
 import parse from './src/parsers.js';
 import formatOutput from './src/format.js';
+import normalizePath from './src/utils.js';
 
-const normalizePath = (filePath) => (
-  path.isAbsolute(filePath) ? filePath : path.resolve(process.cwd(), filePath)
-);
-
-const gendiff = (filepath1, filepath2, format) => {
+const gendiff = (filepath1, filepath2, format = 'stylish') => {
   const path1 = normalizePath(filepath1);
   const path2 = normalizePath(filepath2);
   const type1 = path.extname(path1);

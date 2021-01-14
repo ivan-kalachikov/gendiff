@@ -6,15 +6,16 @@ import expectedDiffs from '../__fixtures__/expected-diffs.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const pathToPlainJSON1 = path.join(__dirname, '../__fixtures__/file1.json');
-const pathToPlainJSON2 = path.join(__dirname, '../__fixtures__/file2.json');
-const pathToPlainYML1 = path.join(__dirname, '../__fixtures__/file1.yml');
-const pathToPlainYML2 = path.join(__dirname, '../__fixtures__/file2.yml');
+const getFixturePath = (filename) => path.join(__dirname, '../__fixtures__/', filename);
+const plainJSON1 = getFixturePath('file1.json');
+const plainJSON2 = getFixturePath('file2.json');
+const plainYML1 = getFixturePath('file1.yml');
+const plainYML2 = getFixturePath('file2.yml');
 
 test('test gendiff on plain json', () => {
-  expect(gendiff(pathToPlainJSON1, pathToPlainJSON2, 'stylish')).toEqual(expectedDiffs);
+  expect(gendiff(plainJSON1, plainJSON2, 'stylish')).toEqual(expectedDiffs);
 });
 
 test('test gendiff on plain yml', () => {
-  expect(gendiff(pathToPlainYML1, pathToPlainYML2, 'stylish')).toEqual(expectedDiffs);
+  expect(gendiff(plainYML1, plainYML2, 'stylish')).toEqual(expectedDiffs);
 });
