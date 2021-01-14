@@ -7,5 +7,12 @@
 
 ---
 
-**Example**
+**Examples:**
+
+plain json
 [![asciicast](https://asciinema.org/a/4iUYXcdIfuewtR2yNEdTxtJ4x.svg)](https://asciinema.org/a/4iUYXcdIfuewtR2yNEdTxtJ4x)
+
+plain yml
+[![asciicast](https://asciinema.org/a/6HGk41coEp7ijTNH5PGo8xev3.svg)](https://asciinema.org/a/6HGk41coEp7ijTNH5PGo8xev3)
+
+

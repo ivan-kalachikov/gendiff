@@ -14,7 +14,9 @@
   "jest": {
     "testEnvironment": "node",
     "transform": {},
-    "modulePathIgnorePatterns": ["__fixtures__"]
+    "modulePathIgnorePatterns": [
+      "__fixtures__"
+    ]
   },
   "repository": {
     "type": "git",
@@ -28,6 +30,7 @@
   "homepage": "https://github.com/Ivankalachikov/frontend-project-lvl2#readme",
   "dependencies": {
     "commander": "^6.2.1",
+    "js-yaml": "^4.0.0",
     "lodash": "^4.17.20"
   },
   "devDependencies": {
