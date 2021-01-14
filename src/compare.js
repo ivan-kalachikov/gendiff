@@ -5,7 +5,7 @@ const compare = (obj1, obj2) => {
   const keys2 = Object.keys(obj2);
   const unionKeys = _.union(keys1, keys2).sort();
 
-  const result = unionKeys.reduce((acc, key) => {
+  return unionKeys.reduce((acc, key) => {
     const isRemoved = key in obj1 && !(key in obj2);
     const isAdded = !(key in obj1) && key in obj2;
     const notChanged = obj1[key] === obj2[key];
@@ -37,8 +37,6 @@ const compare = (obj1, obj2) => {
     acc.push(item);
     return acc;
   }, []);
-
-  return result;
 };
 
 export default compare;
