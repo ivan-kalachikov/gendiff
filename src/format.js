@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const generateIndent = (level) => (level === 0 ? '' : '    '.repeat(level));
+const generateIndent = (level) => (level === 0 ? '' : ' '.repeat(level * 4));
 
 const normalizeValue = (value, level) => {
   const indent = generateIndent(level + 2);
