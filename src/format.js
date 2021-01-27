@@ -23,7 +23,7 @@ const formatToStylish = (diffs, level = 0) => {
   const plus = `${indent2}  + `;
   const minus = `${indent2}  - `;
   const styledDiffs = diffs.map(({
-    key, status, value, newValue, child,
+    key, status, value, newValue, children,
   }) => {
     const normalizedValue = normalizeValue(value, level);
     if (status === 'removed') {
@@ -36,7 +36,7 @@ const formatToStylish = (diffs, level = 0) => {
       return `${indent}${key}: ${normalizedValue}`;
     }
     if (status === 'changed_deep') {
-      return `${indent}${key}: ${formatToStylish(child, level + 1)}`;
+      return `${indent}${key}: ${formatToStylish(children, level + 1)}`;
     }
     return `${minus}${key}: ${normalizedValue}\n${plus}${key}: ${newValue}`;
   });

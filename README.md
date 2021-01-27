@@ -15,4 +15,7 @@ plain json
 plain yml
 [![asciicast](https://asciinema.org/a/6HGk41coEp7ijTNH5PGo8xev3.svg)](https://asciinema.org/a/6HGk41coEp7ijTNH5PGo8xev3)
 
+nested json
+[![asciicast](https://asciinema.org/a/b4BXDhfe0PkfaB87jjc87bwYO.svg)](https://asciinema.org/a/b4BXDhfe0PkfaB87jjc87bwYO)
+
 

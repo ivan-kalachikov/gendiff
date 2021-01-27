@@ -19,7 +19,6 @@ const gendiff = (filepath1, filepath2, format = 'stylish') => {
 
   const diffs = compare(parsedData1, parsedData2);
   const stylishString = formatOutput(diffs, format);
-  console.log(diffs);
   console.log(stylishString);
   return (stylishString);
 };

@@ -39,7 +39,7 @@ const compare = (obj1, obj2) => {
       return item;
     }
     if (status === 'changed_deep') {
-      item.child = compare(obj1[key], obj2[key]);
+      item.children = compare(obj1[key], obj2[key]);
       return item;
     }
     item.value = obj1[key];
