@@ -1,42 +1,52 @@
 import _ from 'lodash';
 
+const getStatusByKey = (obj1, obj2, key) => {
+  if (key in obj1 && !(key in obj2)) {
+    return 'removed';
+  }
+  if (!(key in obj1) && key in obj2) {
+    return 'added';
+  }
+  if (_.isEqual(obj1[key], obj2[key])) {
+    return 'unchanged';
+  }
+  if (_.isPlainObject(obj1[key]) && _.isPlainObject(obj2[key])) {
+    return 'changed_deep';
+  }
+  return 'changed';
+};
+
 const compare = (obj1, obj2) => {
-  const keys1 = Object.keys(obj1);
-  const keys2 = Object.keys(obj2);
+  const keys1 = _.keys(obj1);
+  const keys2 = _.keys(obj2);
   const unionKeys = _.union(keys1, keys2).sort();
-
-  return unionKeys.reduce((acc, key) => {
-    const isRemoved = key in obj1 && !(key in obj2);
-    const isAdded = !(key in obj1) && key in obj2;
-    const notChanged = obj1[key] === obj2[key];
-    const isChanged = !notChanged && !isRemoved && !isAdded;
-
+  const diffs = unionKeys.map((key) => {
+    const status = getStatusByKey(obj1, obj2, key);
     const item = {
       key,
-      value: obj1[key],
+      status,
     };
-
-    if (isRemoved) {
-      item.status = 'removed';
+    if (status === 'removed') {
+      item.value = obj1[key];
+      return item;
     }
-
-    if (isAdded) {
-      item.status = 'added';
+    if (status === 'added') {
       item.value = obj2[key];
+      return item;
     }
-
-    if (notChanged) {
-      item.status = 'not_changed';
+    if (status === 'unchanged') {
+      item.value = obj1[key];
+      return item;
     }
-
-    if (isChanged) {
-      item.status = 'changed';
-      item.newValue = obj2[key];
+    if (status === 'changed_deep') {
+      item.child = compare(obj1[key], obj2[key]);
+      return item;
     }
-
-    acc.push(item);
-    return acc;
-  }, []);
+    item.value = obj1[key];
+    item.newValue = obj2[key];
+    return item;
+  });
+  return diffs;
 };
 
 export default compare;
