@@ -16,7 +16,7 @@ const getStatusByKey = (obj1, obj2, key) => {
   return 'changed';
 };
 
-const compare = (obj1, obj2) => {
+const generateDiffsTree = (obj1, obj2) => {
   const keys1 = _.keys(obj1);
   const keys2 = _.keys(obj2);
   const unionKeys = _.union(keys1, keys2).sort();
@@ -37,7 +37,7 @@ const compare = (obj1, obj2) => {
         item.value = obj1[key];
         break;
       case 'changed_deep':
-        item.children = compare(obj1[key], obj2[key]);
+        item.children = generateDiffsTree(obj1[key], obj2[key]);
         break;
       default:
         item.value = obj1[key];
@@ -48,4 +48,4 @@ const compare = (obj1, obj2) => {
   return diffs;
 };
 
-export default compare;
+export default generateDiffsTree;

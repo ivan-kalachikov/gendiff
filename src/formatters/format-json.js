@@ -1,3 +1,3 @@
-const formatToJSON = (diffs) => JSON.stringify(diffs);
+const formatToJSON = (diffsTree) => JSON.stringify(diffsTree);
 
 export default formatToJSON;

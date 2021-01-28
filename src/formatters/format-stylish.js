@@ -17,12 +17,12 @@ const normalizeValue = (value, level) => {
   return `{\n${result.join('\n')}\n${indent}}`;
 };
 
-const formatToStylish = (diffs, level = 0) => {
+const formatToStylish = (diffsTree, level = 0) => {
   const indentWide = generateIndent(level + 1);
   const indent = generateIndent(level);
   const plus = `${indent}  + `;
   const minus = `${indent}  - `;
-  const formattedDiffs = diffs.map(({
+  const formattedDiffs = diffsTree.map(({
     key, status, value, newValue, children,
   }) => {
     const normalizedValue = normalizeValue(value, level);

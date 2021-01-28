@@ -7,8 +7,8 @@ const normalizeValue = (value) => {
   return '[complex value]';
 };
 
-const formatToPlain = (diffs, path = '') => {
-  const formattedDiffs = diffs
+const formatToPlain = (diffsTree, path = '') => {
+  const formattedDiffs = diffsTree
     .filter(({ status }) => status !== 'unchanged')
     .map(({
       key, status, value, newValue, children,
