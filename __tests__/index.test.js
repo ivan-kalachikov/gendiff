@@ -2,7 +2,7 @@ import { test, expect } from '@jest/globals';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import gendiff from '../index.js';
-import { stylishDiffs, plainDiffs } from '../__fixtures__/expected-diffs.js';
+import { stylishDiffs, plainDiffs, JSONDiffs } from '../__fixtures__/expected-diffs.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -26,4 +26,12 @@ test('test gendiff on json with plain format', () => {
 
 test('test gendiff on yml with plain format', () => {
   expect(gendiff(yml1, yml2, 'plain')).toEqual(plainDiffs);
+});
+
+test('test gendiff on json with json format', () => {
+  expect(gendiff(json1, json2, 'json')).toEqual(JSONDiffs);
+});
+
+test('test gendiff on yml with json format', () => {
+  expect(gendiff(yml1, yml2, 'json')).toEqual(JSONDiffs);
 });

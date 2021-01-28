@@ -20,3 +20,6 @@ nested json - stylish format
 
 nested json - plain format output
 [![asciicast](https://asciinema.org/a/zf4R1A5XUkWdYcXuxmk6UlCNa.svg)](https://asciinema.org/a/zf4R1A5XUkWdYcXuxmk6UlCNa)
+
+nested json - json format output
+[![asciicast](https://asciinema.org/a/dBxqalA5Ufta9rNdd0OFLTnsH.svg)](https://asciinema.org/a/dBxqalA5Ufta9rNdd0OFLTnsH)
