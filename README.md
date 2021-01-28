@@ -9,13 +9,14 @@
 
 **Examples:**
 
-plain json
+plain json - stylish format
 [![asciicast](https://asciinema.org/a/BayL7ByoQIkygJ9OeMS30ztNz.svg)](https://asciinema.org/a/BayL7ByoQIkygJ9OeMS30ztNz)
 
-plain yml
+plain yml - stylish format
 [![asciicast](https://asciinema.org/a/6HGk41coEp7ijTNH5PGo8xev3.svg)](https://asciinema.org/a/6HGk41coEp7ijTNH5PGo8xev3)
 
-nested json
+nested json - stylish format
 [![asciicast](https://asciinema.org/a/b4BXDhfe0PkfaB87jjc87bwYO.svg)](https://asciinema.org/a/b4BXDhfe0PkfaB87jjc87bwYO)
 
-
+nested json - plain format output
+[![asciicast](https://asciinema.org/a/zf4R1A5XUkWdYcXuxmk6UlCNa.svg)](https://asciinema.org/a/zf4R1A5XUkWdYcXuxmk6UlCNa)

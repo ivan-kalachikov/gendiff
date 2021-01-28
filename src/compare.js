@@ -26,24 +26,23 @@ const compare = (obj1, obj2) => {
       key,
       status,
     };
-    if (status === 'removed') {
-      item.value = obj1[key];
-      return item;
+    switch (status) {
+      case 'removed':
+        item.value = obj1[key];
+        break;
+      case 'added':
+        item.value = obj2[key];
+        break;
+      case 'unchanged':
+        item.value = obj1[key];
+        break;
+      case 'changed_deep':
+        item.children = compare(obj1[key], obj2[key]);
+        break;
+      default:
+        item.value = obj1[key];
+        item.newValue = obj2[key];
     }
-    if (status === 'added') {
-      item.value = obj2[key];
-      return item;
-    }
-    if (status === 'unchanged') {
-      item.value = obj1[key];
-      return item;
-    }
-    if (status === 'changed_deep') {
-      item.children = compare(obj1[key], obj2[key]);
-      return item;
-    }
-    item.value = obj1[key];
-    item.newValue = obj2[key];
     return item;
   });
   return diffs;

@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import compare from './src/compare.js';
 import parse from './src/parsers.js';
-import formatOutput from './src/format.js';
+import formatOutput from './src/formatters/index.js';
 import normalizePath from './src/utils.js';
 
 const gendiff = (filepath1, filepath2, format = 'stylish') => {

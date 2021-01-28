@@ -22,27 +22,24 @@ const formatToStylish = (diffs, level = 0) => {
   const indent2 = generateIndent(level);
   const plus = `${indent2}  + `;
   const minus = `${indent2}  - `;
-  const styledDiffs = diffs.map(({
+  const formattedDiffs = diffs.map(({
     key, status, value, newValue, children,
   }) => {
     const normalizedValue = normalizeValue(value, level);
-    if (status === 'removed') {
-      return `${minus}${key}: ${normalizedValue}`;
+    switch (status) {
+      case 'removed':
+        return `${minus}${key}: ${normalizedValue}`;
+      case 'added':
+        return `${plus}${key}: ${normalizedValue}`;
+      case 'unchanged':
+        return `${indent}${key}: ${normalizedValue}`;
+      case 'changed_deep':
+        return `${indent}${key}: ${formatToStylish(children, level + 1)}`;
+      default:
+        return `${minus}${key}: ${normalizedValue}\n${plus}${key}: ${newValue}`;
     }
-    if (status === 'added') {
-      return `${plus}${key}: ${normalizedValue}`;
-    }
-    if (status === 'unchanged') {
-      return `${indent}${key}: ${normalizedValue}`;
-    }
-    if (status === 'changed_deep') {
-      return `${indent}${key}: ${formatToStylish(children, level + 1)}`;
-    }
-    return `${minus}${key}: ${normalizedValue}\n${plus}${key}: ${newValue}`;
   });
-  return `{\n${styledDiffs.join('\n')}\n${indent2}}`;
+  return `{\n${formattedDiffs.join('\n')}\n${indent2}}`;
 };
 
-const formatOutput = (diffs, format) => format === 'stylish' && formatToStylish(diffs);
-
-export default formatOutput;
+export default formatToStylish;
