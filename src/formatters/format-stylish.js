@@ -8,12 +8,7 @@ const normalizeValue = (value, level) => {
   if (!_.isPlainObject(value)) {
     return value;
   }
-  const result = _.keys(value).map((key) => {
-    if (!_.isPlainObject(value[key])) {
-      return `${indentWide}${key}: ${value[key]}`;
-    }
-    return `${indentWide}${key}: ${normalizeValue(value[key], level + 1)}`;
-  });
+  const result = _.keys(value).map((key) => `${indentWide}${key}: ${normalizeValue(value[key], level + 1)}`);
   return `{\n${result.join('\n')}\n${indent}}`;
 };
 

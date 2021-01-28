@@ -15,19 +15,18 @@ const formatToPlain = (diffsTree, path = '') => {
     }) => {
       const normalizedValue = normalizeValue(value);
       const normalizedNewValue = normalizeValue(newValue);
-      if (status === 'changed_deep') {
-        return formatToPlain(children, `${path}${key}.`);
+      switch (status) {
+        case 'changed_deep':
+          return formatToPlain(children, `${path}${key}.`);
+        case 'removed':
+          return `Property '${path}${key}' was removed`;
+        case 'added':
+          return `Property '${path}${key}' was added with value: ${normalizedValue}`;
+        case 'changed':
+          return `Property '${path}${key}' was updated. From ${normalizedValue} to ${normalizedNewValue}`;
+        default:
+          return false;
       }
-      if (status === 'removed') {
-        return `Property '${path}${key}' was removed`;
-      }
-      if (status === 'added') {
-        return `Property '${path}${key}' was added with value: ${normalizedValue}`;
-      }
-      if (status === 'changed') {
-        return `Property '${path}${key}' was updated. From ${normalizedValue} to ${normalizedNewValue}`;
-      }
-      return false;
     });
   return formattedDiffs.join('\n');
 };

@@ -1,12 +1,11 @@
 import yaml from 'js-yaml';
 
 export default (type = '.json', data) => {
-  let parse;
   if (type === '.yml') {
-    parse = yaml.load;
+    return yaml.load(data);
   }
   if (type === '.json') {
-    parse = JSON.parse;
+    return JSON.parse(data);
   }
-  return parse(data);
+  return JSON.parse(data);
 };
