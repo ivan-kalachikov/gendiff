@@ -17,10 +17,10 @@ const getStatusByKey = (obj1, obj2, key) => {
 };
 
 const generateDiffsTree = (obj1, obj2) => {
-  const keys1 = _.keys(obj1).sort();
-  const keys2 = _.keys(obj2).sort();
+  const keys1 = _.keys(obj1);
+  const keys2 = _.keys(obj2);
   const unionKeys = _.union(keys1, keys2);
-  const sortedUnionKeys = [...unionKeys].sort();
+  const sortedUnionKeys = _.sortBy(unionKeys);
   const diffs = sortedUnionKeys.map((key) => {
     const status = getStatusByKey(obj1, obj2, key);
     const generateNode = (value, newValue, children) => ({
