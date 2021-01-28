@@ -12,6 +12,5 @@ gendiffProgram
   .arguments('<filepath1> <filepath2>')
   .option('-f, --format [type]', 'output format', 'stylish')
   .action((filepath1, filepath2, options) => (
-    console.log(gendiff(filepath1, filepath2, options.format))));
-
-gendiffProgram.parse(process.argv);
+    console.log(gendiff(filepath1, filepath2, options.format))))
+  .parse(process.argv);

@@ -2,7 +2,7 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "Utility for comparing two configuration files and showing a difference.",
-  "main": "bin/gendiff.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "npx jest",
