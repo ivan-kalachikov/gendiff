@@ -21,6 +21,7 @@ const formatToStylish = (diffsTree, level = 0) => {
     key, status, value, newValue, children,
   }) => {
     const normalizedValue = normalizeValue(value, level);
+    const normalizedNewValue = normalizeValue(newValue, level);
     switch (status) {
       case 'removed':
         return `${minus}${key}: ${normalizedValue}`;
@@ -31,7 +32,7 @@ const formatToStylish = (diffsTree, level = 0) => {
       case 'changed_deep':
         return `${indentWide}${key}: ${formatToStylish(children, level + 1)}`;
       default:
-        return `${minus}${key}: ${normalizedValue}\n${plus}${key}: ${newValue}`;
+        return `${minus}${key}: ${normalizedValue}\n${plus}${key}: ${normalizedNewValue}`;
     }
   });
   return `{\n${formattedDiffs.join('\n')}\n${indent}}`;
