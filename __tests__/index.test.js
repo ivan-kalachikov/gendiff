@@ -12,26 +12,26 @@ const json2 = getFixturePath('file2.json');
 const yml1 = getFixturePath('file1.yml');
 const yml2 = getFixturePath('file2.yml');
 
-test('test gendiff on json with stylish format', () => {
+test('json with stylish format', () => {
   expect(gendiff(json1, json2, 'stylish')).toEqual(stylishDiffs);
 });
 
-test('test gendiff on yml with stylish format', () => {
+test('yml with stylish format', () => {
   expect(gendiff(yml1, yml2, 'stylish')).toEqual(stylishDiffs);
 });
 
-test('test gendiff on json with plain format', () => {
+test('json with plain format', () => {
   expect(gendiff(json1, json2, 'plain')).toEqual(plainDiffs);
 });
 
-test('test gendiff on yml with plain format', () => {
+test('yml with plain format', () => {
   expect(gendiff(yml1, yml2, 'plain')).toEqual(plainDiffs);
 });
 
-test('test gendiff on json with json format', () => {
+test('json with json format', () => {
   expect(gendiff(json1, json2, 'json')).toEqual(JSONDiffs);
 });
 
-test('test gendiff on yml with json format', () => {
+test('yml with json format', () => {
   expect(gendiff(yml1, yml2, 'json')).toEqual(JSONDiffs);
 });

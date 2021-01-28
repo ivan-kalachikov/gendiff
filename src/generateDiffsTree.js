@@ -17,33 +17,27 @@ const getStatusByKey = (obj1, obj2, key) => {
 };
 
 const generateDiffsTree = (obj1, obj2) => {
-  const keys1 = _.keys(obj1);
-  const keys2 = _.keys(obj2);
-  const unionKeys = _.union(keys1, keys2).sort();
-  const diffs = unionKeys.map((key) => {
+  const keys1 = _.keys(obj1).sort();
+  const keys2 = _.keys(obj2).sort();
+  const unionKeys = _.union(keys1, keys2);
+  const sortedUnionKeys = [...unionKeys].sort();
+  const diffs = sortedUnionKeys.map((key) => {
     const status = getStatusByKey(obj1, obj2, key);
-    const item = {
-      key,
-      status,
-    };
+    const generateNode = (value, newValue, children) => ({
+      key, status, value, newValue, children,
+    });
     switch (status) {
       case 'removed':
-        item.value = obj1[key];
-        break;
+        return generateNode(obj1[key]);
       case 'added':
-        item.value = obj2[key];
-        break;
+        return generateNode(obj2[key]);
       case 'unchanged':
-        item.value = obj1[key];
-        break;
+        return generateNode(obj1[key]);
       case 'changed_deep':
-        item.children = generateDiffsTree(obj1[key], obj2[key]);
-        break;
+        return generateNode(undefined, undefined, generateDiffsTree(obj1[key], obj2[key]));
       default:
-        item.value = obj1[key];
-        item.newValue = obj2[key];
+        return generateNode(obj1[key], obj2[key]);
     }
-    return item;
   });
   return diffs;
 };
