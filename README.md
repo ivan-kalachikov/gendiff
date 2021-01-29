@@ -44,4 +44,4 @@ nested json - plain format output
 [![asciicast](https://asciinema.org/a/YxAwIZdcAyjdiNeKvfw2uGSNY.svg)](https://asciinema.org/a/YxAwIZdcAyjdiNeKvfw2uGSNY)
 
 nested json - json format output
-[![asciicast](https://asciinema.org/a/mnbVPP6ER1rZaOr4N6aZOoM1z.svg)](https://asciinema.org/a/mnbVPP6ER1rZaOr4N6aZOoM1z)
+[![asciicast](https://asciinema.org/a/xlAtHxuiWCRlxNXQFbi1QANkp.svg)](https://asciinema.org/a/xlAtHxuiWCRlxNXQFbi1QANkp)
