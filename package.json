@@ -9,7 +9,7 @@
     "test:watch": "npx jest --watch"
   },
   "bin": {
-    "gendiff": "bin/gendiff.js"
+    "gendiff": "./bin/gendiff.js"
   },
   "jest": {
     "testEnvironment": "node",

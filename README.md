@@ -32,16 +32,16 @@
 **Examples:**
 
 plain json - stylish format
-[![asciicast](https://asciinema.org/a/BayL7ByoQIkygJ9OeMS30ztNz.svg)](https://asciinema.org/a/BayL7ByoQIkygJ9OeMS30ztNz)
+[![asciicast](https://asciinema.org/a/9qI9czpNWsr0R0tUyurJ8Sfkj.svg)](https://asciinema.org/a/9qI9czpNWsr0R0tUyurJ8Sfkj)
 
 plain yml - stylish format
-[![asciicast](https://asciinema.org/a/6HGk41coEp7ijTNH5PGo8xev3.svg)](https://asciinema.org/a/6HGk41coEp7ijTNH5PGo8xev3)
+[![asciicast](https://asciinema.org/a/iL76gkCTvXm2B2aG4UJbn2TEt.svg)](https://asciinema.org/a/iL76gkCTvXm2B2aG4UJbn2TEt)
 
 nested json - stylish format
-[![asciicast](https://asciinema.org/a/b4BXDhfe0PkfaB87jjc87bwYO.svg)](https://asciinema.org/a/b4BXDhfe0PkfaB87jjc87bwYO)
+[![asciicast](https://asciinema.org/a/n6AJALbbrJtwweueW98OQnwIC.svg)](https://asciinema.org/a/n6AJALbbrJtwweueW98OQnwIC)
 
 nested json - plain format output
-[![asciicast](https://asciinema.org/a/zf4R1A5XUkWdYcXuxmk6UlCNa.svg)](https://asciinema.org/a/zf4R1A5XUkWdYcXuxmk6UlCNa)
+[![asciicast](https://asciinema.org/a/YxAwIZdcAyjdiNeKvfw2uGSNY.svg)](https://asciinema.org/a/YxAwIZdcAyjdiNeKvfw2uGSNY)
 
 nested json - json format output
-[![asciicast](https://asciinema.org/a/dBxqalA5Ufta9rNdd0OFLTnsH.svg)](https://asciinema.org/a/dBxqalA5Ufta9rNdd0OFLTnsH)
+[![asciicast](https://asciinema.org/a/mnbVPP6ER1rZaOr4N6aZOoM1z.svg)](https://asciinema.org/a/mnbVPP6ER1rZaOr4N6aZOoM1z)
