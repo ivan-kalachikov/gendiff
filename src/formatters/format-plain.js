@@ -11,9 +11,9 @@ const formatToPlain = (diffsTree, path = '') => {
   const formattedDiffs = diffsTree
     .filter(({ status }) => status !== 'unchanged')
     .map(({
-      key, status, value, newValue, children,
+      key, status, oldValue, newValue, children,
     }) => {
-      const normalizedValue = normalizeValue(value);
+      const normalizedOldValue = normalizeValue(oldValue);
       const normalizedNewValue = normalizeValue(newValue);
       switch (status) {
         case 'changed_deep':
@@ -21,11 +21,11 @@ const formatToPlain = (diffsTree, path = '') => {
         case 'removed':
           return `Property '${path}${key}' was removed`;
         case 'added':
-          return `Property '${path}${key}' was added with value: ${normalizedValue}`;
+          return `Property '${path}${key}' was added with value: ${normalizedNewValue}`;
         case 'changed':
-          return `Property '${path}${key}' was updated. From ${normalizedValue} to ${normalizedNewValue}`;
+          return `Property '${path}${key}' was updated. From ${normalizedOldValue} to ${normalizedNewValue}`;
         default:
-          return false;
+          throw new Error(`Unknown status ${status}`);
       }
     });
   return formattedDiffs.join('\n');

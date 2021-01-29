@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import generateDiffsTree from './src/generateDiffsTree.js';
+import genDiffsTree from './src/genDiffsTree.js';
 import parse from './src/parsers.js';
 import formatOutput from './src/formatters/index.js';
 import normalizePath from './src/utils.js';
@@ -17,7 +17,7 @@ const gendiff = (filepath1, filepath2, format = 'stylish') => {
   const parsedData1 = parse(type1, file1Data);
   const parsedData2 = parse(type2, file2Data);
 
-  const diffs = generateDiffsTree(parsedData1, parsedData2);
+  const diffs = genDiffsTree(parsedData1, parsedData2);
   const formattedString = formatOutput(diffs, format);
   return (formattedString);
 };

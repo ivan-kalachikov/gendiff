@@ -2,14 +2,17 @@ import formatToStylish from './format-stylish.js';
 import formatToPlain from './format-plain.js';
 import formatToJSON from './format-json.js';
 
-const formatOutput = (diffs, format) => {
-  if (format === 'plain') {
-    return formatToPlain(diffs);
+const formatOutput = (diffs, format = 'stylish') => {
+  switch (format) {
+    case 'stylish':
+      return formatToStylish(diffs);
+    case 'plain':
+      return formatToPlain(diffs);
+    case 'json':
+      return formatToJSON(diffs);
+    default:
+      throw new Error('Unknown format');
   }
-  if (format === 'json') {
-    return formatToJSON(diffs);
-  }
-  return formatToStylish(diffs);
 };
 
 export default formatOutput;

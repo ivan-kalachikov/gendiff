@@ -15,24 +15,26 @@ const normalizeValue = (value, level) => {
 const formatToStylish = (diffsTree, level = 0) => {
   const indentWide = generateIndent(level + 1);
   const indent = generateIndent(level);
-  const plus = `${indent}  + `;
-  const minus = `${indent}  - `;
+  const indentWithPlus = `${indent}  + `;
+  const indentWithMinus = `${indent}  - `;
   const formattedDiffs = diffsTree.map(({
-    key, status, value, newValue, children,
+    key, status, oldValue, newValue, children,
   }) => {
-    const normalizedValue = normalizeValue(value, level);
+    const normalizedOldValue = normalizeValue(oldValue, level);
     const normalizedNewValue = normalizeValue(newValue, level);
     switch (status) {
       case 'removed':
-        return `${minus}${key}: ${normalizedValue}`;
+        return `${indentWithMinus}${key}: ${normalizedOldValue}`;
       case 'added':
-        return `${plus}${key}: ${normalizedValue}`;
+        return `${indentWithPlus}${key}: ${normalizedNewValue}`;
       case 'unchanged':
-        return `${indentWide}${key}: ${normalizedValue}`;
+        return `${indentWide}${key}: ${normalizedOldValue}`;
       case 'changed_deep':
         return `${indentWide}${key}: ${formatToStylish(children, level + 1)}`;
+      case 'changed':
+        return `${indentWithMinus}${key}: ${normalizedOldValue}\n${indentWithPlus}${key}: ${normalizedNewValue}`;
       default:
-        return `${minus}${key}: ${normalizedValue}\n${plus}${key}: ${normalizedNewValue}`;
+        throw new Error(`Unknown status ${status}`);
     }
   });
   return `{\n${formattedDiffs.join('\n')}\n${indent}}`;
