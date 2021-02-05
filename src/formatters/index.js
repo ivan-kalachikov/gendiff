@@ -1,6 +1,5 @@
-import formatToStylish from './format-stylish.js';
-import formatToPlain from './format-plain.js';
-import formatToJSON from './format-json.js';
+import formatToStylish from './stylish.js';
+import formatToPlain from './plain.js';
 
 const formatOutput = (diffs, format = 'stylish') => {
   switch (format) {
@@ -9,9 +8,9 @@ const formatOutput = (diffs, format = 'stylish') => {
     case 'plain':
       return formatToPlain(diffs);
     case 'json':
-      return formatToJSON(diffs);
+      return JSON.stringify(diffs);
     default:
-      throw new Error('Unknown format');
+      throw new Error(`Unknown format ${format}`);
   }
 };
 

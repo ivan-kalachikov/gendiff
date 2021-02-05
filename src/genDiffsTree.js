@@ -24,21 +24,19 @@ const genDiffsTree = (obj1, obj2) => {
   const diffs = sortedUnionKeys.map((key) => {
     const status = getStatusByKey(obj1, obj2, key);
 
-    const generateNode = (oldValue, newValue, children) => ({
-      key, status, oldValue, newValue, children,
-    });
-
     switch (status) {
       case 'removed':
-        return generateNode(obj1[key]);
+        return { key, status, oldValue: obj1[key] };
       case 'added':
-        return generateNode(undefined, obj2[key]);
+        return { key, status, newValue: obj2[key] };
       case 'unchanged':
-        return generateNode(obj1[key]);
+        return { key, status, oldValue: obj1[key] };
       case 'changed_deep':
-        return generateNode(undefined, undefined, genDiffsTree(obj1[key], obj2[key]));
+        return { key, status, children: genDiffsTree(obj1[key], obj2[key]) };
       case 'changed':
-        return generateNode(obj1[key], obj2[key]);
+        return {
+          key, status, oldValue: obj1[key], newValue: obj2[key],
+        };
       default:
         throw new Error(`Unknown status ${status}`);
     }
