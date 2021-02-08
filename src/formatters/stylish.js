@@ -29,9 +29,10 @@ const formatToStylish = (diffsTree, level = 0) => {
         return `${indentWithPlus}${key}: ${normalizedNewValue}`;
       case 'unchanged':
         return `${indentWide}${key}: ${normalizedOldValue}`;
-      case 'changed_deep':
-        return `${indentWide}${key}: ${formatToStylish(children, level + 1)}`;
       case 'changed':
+        if (children) {
+          return `${indentWide}${key}: ${formatToStylish(children, level + 1)}`;
+        }
         return `${indentWithMinus}${key}: ${normalizedOldValue}\n${indentWithPlus}${key}: ${normalizedNewValue}`;
       default:
         throw new Error(`Unknown status ${status}`);
